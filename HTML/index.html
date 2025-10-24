@@ -1,25 +1,85 @@
+<!-- Copilot was used to help develop code -->
+
 <!-- CS465 Lab1 HTML/index.html -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Miguel's Coffee and Donuts</title>
     <link rel="stylesheet" type="text/css" href="../CSS/style.css">
-    <a href="https:/youtube.com">Youtube</a>
 </head>
 
 <body>
-    <section id="navigation-bar">
-        <div class ="navigation-one">
+    <header id="navigation-bar">
+        <div class="navigation-one">
             <h1>Miguel's Coffee and Donuts</h1>
+            <p class="tagline">Bland coffee. Stale donuts. Medicore atmosphere.</p>
         </div>
-        <div class="list">
+
+        <!-- tabbed navigation -->
+        <nav class="tabs" aria-label="Main navigation">
             <ul>
-                <a href="#"><li class="Cof">Coffee </li></a>
-                <a href="#"><li class="Don">Donuts </li></a>
-                <a href="#"><li class="Des">Deserts </li></a>
+                <li><a href="#" class="tab-link active" data-tab="coffee">Coffee</a></li>
+                <li><a href="#" class="tab-link" data-tab="donuts">Donuts</a></li>
+                <li><a href="#" class="tab-link" data-tab="deserts">Deserts</a></li>
             </ul>
-        </div>
+        </nav>
+
         <div class="button">
-            <a class="btn" href="#">Contact Miguel</a>
+            <a class="btn" href="#contact">Contact Miguel</a>
         </div>
-    </section>
+    </header>
+
+    <!-- tab content panels -->
+    <main>
+        <section id="coffee" class="tab-content active" role="region" aria-labelledby="coffee-tab">
+            <h2 id="coffee-tab">Our Coffee</h2>
+            <p>We use normal instant coffee and a microwave. Try our seasonal blends which uses a dash of peppermint or pumpkin.</p>
+            <img src="https://freerangestock.com/sample/122228/a-cup-of-coffee-on-a-saucer-with-a-spoon.jpg" alt="Cup of joe" class="hero-img">
+            <p>Image credit to Steve Buissinne</p>
+        </section>
+
+        <section id="donuts" class="tab-content" role="region" aria-labelledby="donuts-tab">
+            <h2 id="donuts-tab">Donuts</h2>
+            <p>Whatever donuts we didn't eat the other day from a name-brand location, we sell here. Don't expect freshness.</p>
+            <img src="https://live.staticflickr.com/8833/18321553171_cebf177a96_b.jpg" alt="Assorted donuts on a plate" class="hero-img">
+            <p>Image credit to Ramon Boersbroek</p>
+
+        </section>
+
+        <section id="deserts" class="tab-content" role="region" aria-labelledby="deserts-tab">
+            <h2 id="deserts-tab">Deserts</h2>
+            <p>Enjoy our gallery of various sands coming from deserts around the world. FOR VIEWING ONLY!</p>
+            <img src="https://live.staticflickr.com/36/85019802_8bcffa79ab_b.jpg" alt="Assorted deserts" class="hero-img">
+            <p>Image credit to Jessamyn West</p>
+        </section>
+
+        <section id="contact" class="panel contact-panel">
+            <h3>Contact Miguel</h3>
+            <p>Email: <a href="mailto:miguel@example.com">miguel@example.com</a></p>
+            <p>Phone: (555) 555-5555</p>
+        </section>
+    </main>
+
+    <script>
+        // simple tab switching logic
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const tab = this.dataset.tab;
+
+                // toggle active class on links
+                document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+
+                // show the corresponding panel
+                document.querySelectorAll('.tab-content').forEach(panel => {
+                    panel.classList.toggle('active', panel.id === tab);
+                });
+            });
+        });
+    </script>
 </body>
+</html>
 

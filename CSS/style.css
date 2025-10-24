@@ -1,5 +1,95 @@
 /* CS465 Lab1 style file */
+/* Copilot was used to help improve code */
 
 body{
     font-family: monospace;
+}
+
+/* Header and layout */
+#navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg,#f7c6a5,#ffd89b);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.navigation-one h1{
+    margin: 0;
+    font-size: 1.6rem;
+}
+.tagline{
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* Tabs */
+.tabs ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+}
+.tabs a{
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+    color: #4a2f2f;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.6);
+}
+.tabs a.active{
+    background: #4a2f2f;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+.button .btn{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #4a2f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* Main content / panels */
+main{
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.tab-content{
+    display: none;
+    background: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.tab-content.active{
+    display: block;
+}
+
+.hero-img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+/* Contact panel */
+.contact-panel{
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px){
+    #navigation-bar{ flex-direction: column; align-items: flex-start }
+    .tabs ul{ flex-wrap: wrap }
 }
